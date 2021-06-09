@@ -1,10 +1,6 @@
-#include <iostream>
-using namespace std;
+#include<iostream>
 
-int main() {
-	cout << "Arka gdynia!" << endl;
-	cout << "To jest swinia" << endl;
-	cout << "eluwina tak sie dzien zaczyna" << endl;
-	return 0;
-	
+int main()
+{
+	return EXIT_SUCCESS;
 }
