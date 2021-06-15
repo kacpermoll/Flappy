@@ -2,15 +2,17 @@
 #include <iostream>
 
 namespace ChroMoZub {
-	Pipe::Pipe(GameDataRef data) : _data(data) {
-
+	Pipe::Pipe(GameDataRef data) : _data(data) 
+	{
+		_landHeight = _data->assets.getTexture( "Land" ).getSize().y;
+		_pipeSpawnYOffset = 0;
 	}
 
 	void Pipe::SpawnBottomPipe()
 	{
 		sf::Sprite sprite(this->_data->assets.GetTexture("Pipe Up"));
 
-		sprite.setPosition(this->_data->window.getSize().x, this->_data->window.getSize().y - sprite.getLocalBounds().height);
+		sprite.setPosition(this->_data->window.getSize().x, this->_data->window.getSize().y - sprite.getLocalBounds().height - _pipeSpawnYOffset);
 
 		pipeSprites.push_back(sprite);
 	}
@@ -19,12 +21,12 @@ namespace ChroMoZub {
 	{
 		sf::Sprite sprite(this->_data->assets.GetTexture("Pipe Down"));
 
-		sprite.setPosition(this->_data->window.getSize().x, 0);
+		sprite.setPosition(this->_data->window.getSize().x, -_pipeSpawnYOffset );
 
 		pipeSprites.push_back(sprite);
 	}
 
-	//nie do koñca rozumiem jaki problem rozwi¹zuje niewidzialna rura (odcinek 12)
+	//nie do koÃ±ca rozumiem jaki problem rozwiÂ¹zuje niewidzialna rura (odcinek 12)
 	void Pipe::SpawnInvisiblePipe()
 	{
 		sf::Sprite sprite(this->_data->assets.GetTexture("Pipe Down"));
@@ -39,8 +41,8 @@ namespace ChroMoZub {
 	{
 		for (unsigned short int i = 0; i < pipeSprites.size(); i++)
 		{
-			//ten warunek usuwa rure z pamiêci jeœli wyjdzie poza ekran, aby nie zape³niaæ bezsensownie pamiêci
-			//NIE MO¯NA USUN¥Æ RURY JAK TYLKO ZETKNIE SIÊ Z GRANIC¥, PONIEWA¯ WCZEŒNIEJ ZNIKNIE NI¯ CHCEMY (dlatego w warunku ...- pipeSprite().at(i)....
+			//ten warunek usuwa rure z pamiÃªci jeÅ“li wyjdzie poza ekran, aby nie zapeÂ³niaÃ¦ bezsensownie pamiÃªci
+			//NIE MOÂ¯NA USUNÂ¥Ã† RURY JAK TYLKO ZETKNIE SIÃŠ Z GRANICÂ¥, PONIEWAÂ¯ WCZEÅ’NIEJ ZNIKNIE NIÂ¯ CHCEMY (dlatego w warunku ...- pipeSprite().at(i)....
 			if (pipeSprites.at(i).getPosition().x < 0 - pipeSprites.at(i).getGlobalBounds().width) {
 				pipeSprites.erase(pipeSprites.begin() + i);
 			}
@@ -62,6 +64,12 @@ namespace ChroMoZub {
 			this->_data->window.draw(pipeSprites.at(i));
 		}
 	}
+        void Pipe::RandomisePipeOffset()
+	{
+		_pipeSpawnYOffset = rand() % ( _landHeight + 1);
+		
+	}
 
+	
 	
 }
