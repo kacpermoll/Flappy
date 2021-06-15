@@ -1,7 +1,6 @@
-#pragma once
-
 #include <sstream>
 #include "SplashState.hpp"
+#include "MainMenuState.hpp"
 #include "DEFINITIONS.hpp"
 
 #include <iostream>
@@ -37,8 +36,8 @@ namespace ChroMoZub
 	{
 		if (this->_clock.getElapsedTime().asSeconds() > SPLASH_STATE_SHOW_TIME)
 		{
-			// Switch To Main Menu
-			std::cout << "Go to main menu" << std::endl;
+			//przechodzimy do stanu main menu
+			_data->machine.AddState(StateRef(new MainMenuState(_data)), true);
 		}
 	}
 
