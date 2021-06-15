@@ -16,11 +16,16 @@ namespace ChroMoZub {
 		void MovePipes(float dt);
 		//funkcja odpowiedzialna za rysowanie rur
 		void DrawPipes();
+		void RandomisePipeOffset();
 
 	private:
 		GameDataRef _data;
 
-		//vector zawieraj¹cy wszystkie stworzone rury
+		//vector zawierajÂ¹cy wszystkie stworzone rury
 		std::vector<sf::Sprite> pipeSprites;
+		
+		int _landHeight;
+		int _pipeSpawnYOffset;
+		
 	};
 }
