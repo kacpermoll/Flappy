@@ -50,8 +50,9 @@ namespace ChroMoZub
 	{
 		pipe->MovePipes(dt);
 		land-> MoveLand(dt);
-		//jeœli minie okreœlony czas (na odstêp pomiêdzy rurami to stwórz now¹ rurê)
+		//jeÅ“li minie okreÅ“lony czas (na odstÃªp pomiÃªdzy rurami to stwÃ³rz nowÂ¹ rurÃª)
 		if (clock.getElapsedTime().asSeconds() > PIPE_SPAWN_FREQUENCY) {
+			pipe->randomisePipeOffset( );
 			pipe->SpawnInvisiblePipe();
 			pipe->SpawnBottomPipe();
 			pipe->SpawnTopPipe();
