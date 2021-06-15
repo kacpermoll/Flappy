@@ -5,6 +5,7 @@
 #include "Game.hpp"
 #include "Pipe.hpp"
 #include "Land.hpp"
+#include "Bird.hpp"
 
 namespace ChroMoZub
 {
@@ -27,7 +28,9 @@ namespace ChroMoZub
 		Pipe* pipe;
 
 		Land* land;
-
+		
+		Bird* bird;
+		 
 		sf::Clock clock;
 	};
 }
