@@ -26,3 +26,5 @@
 #define PIPE_MOVEMENT_SPEED 200.0f //prêdkoœæ ruchu rur
 #define PIPE_SPAWN_FREQUENCY 1.5f // czestosc pojawiania sie rur, tj czy jest to zageszczeone, czy co 5 metrow
 
+#define BIRD_ANIMATION_DURATION 0.4f
+
