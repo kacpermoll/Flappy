@@ -4,7 +4,7 @@
 namespace ChroMoZub {
 	Pipe::Pipe(GameDataRef data) : _data(data) 
 	{
-		_landHeight = _data->assets.getTexture( "Land" ).getSize().y;
+		_landHeight = _data->assets.GetTexture( "Land" ).getSize().y;
 		_pipeSpawnYOffset = 0;
 	}
 

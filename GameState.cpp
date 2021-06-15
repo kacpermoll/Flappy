@@ -25,7 +25,7 @@ namespace ChroMoZub
 		
 		pipe = new Pipe(_data);
 		land = new Land(_data);
-		bird = nwe Bird(_data);
+		bird = new Bird(_data);
 
 		_background.setTexture(this->_data->assets.GetTexture("Game Background"));
 	}
@@ -56,7 +56,7 @@ namespace ChroMoZub
 		bird->Draw( );  	
 		//jeœli minie okreœlony czas (na odstêp pomiêdzy rurami to stwórz now¹ rurê)
 		if (clock.getElapsedTime().asSeconds() > PIPE_SPAWN_FREQUENCY) {
-			pipe->randomisePipeOffset( );
+			pipe->RandomisePipeOffset( );
 			pipe->SpawnInvisiblePipe();
 			pipe->SpawnBottomPipe();
 			pipe->SpawnTopPipe();
