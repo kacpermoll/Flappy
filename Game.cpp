@@ -1,10 +1,12 @@
 #include"Game.hpp"
 #include "SplashState.hpp"
-
+#include <stdlib.h>
+#include <time.h>
 namespace ChroMoZub
 {
 	Game::Game(int width, int height, std::string title)
 	{
+		srand (time (NULL ));  //uzywamy tego zeby slupki za kazdym razem mialy inne losowe wysokosci
 		_data->window.create(sf::VideoMode(width, height), title, sf::Style::Close | sf::Style::Titlebar);
 		_data->machine.AddState(StateRef(new SplashState(this->_data)));
 
