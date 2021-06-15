@@ -20,9 +20,12 @@ namespace ChroMoZub
 		_data->assets.LoadTexture("Pipe Down", PIPE_DOWN_FILEPATH);
 
 		_data->assets.LoadTexture("Land", LAND_FILEPATH);
+		_data->assets.LoadTexture("Bird Frame 1", BIRD_FRAME_1_FILEPATH );
+		
 		
 		pipe = new Pipe(_data);
 		land = new Land(_data);
+		bird = nwe Bird(_data);
 
 		_background.setTexture(this->_data->assets.GetTexture("Game Background"));
 	}
@@ -50,6 +53,7 @@ namespace ChroMoZub
 	{
 		pipe->MovePipes(dt);
 		land-> MoveLand(dt);
+		bird->Draw( );  	
 		//jeœli minie okreœlony czas (na odstêp pomiêdzy rurami to stwórz now¹ rurê)
 		if (clock.getElapsedTime().asSeconds() > PIPE_SPAWN_FREQUENCY) {
 			pipe->randomisePipeOffset( );
