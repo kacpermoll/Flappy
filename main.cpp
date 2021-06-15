@@ -3,7 +3,7 @@
 
 int main()
 {
-	ChroMoZub::Game(768, 1024, "Flappy Bird");
+	ChroMoZub::Game(768, 1024, "Flappy Bird, ChroMoZub GAMES");
 
 	return EXIT_SUCCESS;
 }

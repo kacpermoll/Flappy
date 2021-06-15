@@ -1,6 +1,7 @@
 #include <sstream>
 #include "MainMenuState.hpp"
 #include "DEFINITIONS.hpp"
+#include"GameState.hpp"
 
 #include <iostream>
 
@@ -39,7 +40,7 @@ namespace ChroMoZub
 
 			if (_data->input.IsSpriteClicked(_playButton, sf::Mouse::Left, _data->window))
 			{
-				std::cout << "Go to game state" << std::endl;
+				_data->machine.AddState(StateRef(new GameState(_data)), true);
 			}
 		}
 	}
