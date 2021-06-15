@@ -6,7 +6,7 @@
 
 #define SPLASH_STATE_SHOW_TIME 3.0
 
-#define SPLASH_STATE_SCENE_BACKGROUND_FILEPATH "Resources/res/SplashBackground.png" //tutaj generalnie definiuje t³o za pomoc¹ pliku który 
+#define SPLASH_STATE_SCENE_BACKGROUND_FILEPATH "Resources/res/SplashBackground.png" //tutaj generalnie definiuje tÂ³o za pomocÂ¹ pliku ktÃ³ry 
 #define MAIN_MENU_BACKGROUND_FILEPATH "Resources/res/sky.png"
 #define GAME_TITLE_FILEPATH "Resources/res/title.png"
 #define PLAY_BUTTON_FILEPATH "Resources/res/PlayButton.png"
@@ -18,6 +18,6 @@
 
 #define LAND_FILEPATH "Resources/res/Land.png"
 
-#define PIPE_MOVEMENT_SPEED 200.0f //prêdkoœæ ruchu rur
-#define PIPE_SPAWN_FREQUENCY 1.5f
+#define PIPE_MOVEMENT_SPEED 200.0f //prÃªdkoÅ“Ã¦ ruchu rur
+#define PIPE_SPAWN_FREQUENCY 1.5f // czestosc pojawiania sie rur, tj czy jest to zageszczeone, czy co 5 metrow
 
