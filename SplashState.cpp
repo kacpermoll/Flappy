@@ -1,43 +1,53 @@
 #pragma once
+
 #include <sstream>
 #include "SplashState.hpp"
-#include "Definitions.hpp" //// TO JEST TO GOWNO Z OBRAZKKAMI I INNYMI RZECZAMI KTÓRYCH NI UMIAŁEM ZAŁĄVCZYĆ W PROGRAMIE
-using namespace std;
+#include "DEFINITIONS.hpp"
+
+#include <iostream>
+
 namespace ChroMoZub
 {
 	SplashState::SplashState(GameDataRef data) : _data(data)
 	{
 
 	}
-	void SplashState :: Init()
+
+	void SplashState::Init()
 	{
-		_data->assets.LoadTexture("Splash State Background", SPLASH_SCENE_BACKGROUND_FILEPATH);
+		this->_data->assets.LoadTexture("Splash State Background", SPLASH_STATE_SCENE_BACKGROUND_FILEPATH);
+
 		_background.setTexture(this->_data->assets.GetTexture("Splash State Background"));
 	}
+
 	void SplashState::HandleInput()
 	{
 		sf::Event event;
 
-		while (_data->window.pollEvent(event))
+		while (this->_data->window.pollEvent(event))
 		{
 			if (sf::Event::Closed == event.type)
 			{
-				_data->window.close();
+				this->_data->window.close();
 			}
 		}
 	}
-	void SplashState::Update(float dt) 
+
+	void SplashState::Update(float dt)
 	{
-		if (_clock.getElapsedTime().asSeconds() > SPLASH_STATE_SHOW_TIME)
+		if (this->_clock.getElapsedTime().asSeconds() > SPLASH_STATE_SHOW_TIME)
 		{
-			std::cout << "Go to main Menu " << std::endl;
+			// Switch To Main Menu
+			std::cout << "Go to main menu" << std::endl;
 		}
 	}
+
 	void SplashState::Draw(float dt)
 	{
-		_data->window.clear();
-		_data->window.draw(_background);
-		_data->window.display();
+		this->_data->window.clear(sf::Color::Red);
 
+		this->_data->window.draw(this->_background);
+
+		this->_data->window.display();
 	}
 }
