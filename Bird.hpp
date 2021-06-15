@@ -7,7 +7,7 @@ namespace ChroMoZub
 class Bird
 {
 public:
-Bird(GameData data );
+Bird(GameDataRef data );
 
 void Draw ();
 
