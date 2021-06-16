@@ -14,6 +14,9 @@ namespace ChroMoZub
 		void Draw();
 		
 		void Animate(float dt );
+		
+		void Update( float dt );
+		void Tap( );
 
 	private:
 		GameDataRef _data;
@@ -22,6 +25,8 @@ namespace ChroMoZub
 		unsigned int  _animationInterator;
 		sf::Clock _clock;
 		
+		sf::Clock _movementClock;
+		int _birdState;
 
 	};
 
