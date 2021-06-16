@@ -28,9 +28,9 @@ namespace ChroMoZub
 		Pipe* pipe;
 
 		Land* land;
-		
+
 		Bird* bird;
-		 
+
 		sf::Clock clock;
 	};
 }

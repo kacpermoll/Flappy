@@ -7,7 +7,7 @@
 
 namespace ChroMoZub {
 	class Pipe {
-	public: 
+	public:
 		Pipe(GameDataRef data);
 
 		void SpawnBottomPipe();
@@ -21,11 +21,11 @@ namespace ChroMoZub {
 	private:
 		GameDataRef _data;
 
-		//vector zawieraj¹cy wszystkie stworzone rury
+		//vector zawierajacy wszystkie stworzone rury
 		std::vector<sf::Sprite> pipeSprites;
-		
+
 		int _landHeight;
 		int _pipeSpawnYOffset;
-		
+
 	};
 }

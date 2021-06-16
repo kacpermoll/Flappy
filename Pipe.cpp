@@ -1,10 +1,13 @@
 #include "Pipe.hpp"
 #include <iostream>
 
+#include "Pipe.hpp"
+#include <iostream>
+
 namespace ChroMoZub {
-	Pipe::Pipe(GameDataRef data) : _data(data) 
+	Pipe::Pipe(GameDataRef data) : _data(data)
 	{
-		_landHeight = _data->assets.GetTexture( "Land" ).getSize().y;
+		_landHeight = _data->assets.GetTexture("Land").getSize().y;
 		_pipeSpawnYOffset = 0;
 	}
 
@@ -21,12 +24,12 @@ namespace ChroMoZub {
 	{
 		sf::Sprite sprite(this->_data->assets.GetTexture("Pipe Down"));
 
-		sprite.setPosition(this->_data->window.getSize().x, -_pipeSpawnYOffset );
+		sprite.setPosition(this->_data->window.getSize().x, -_pipeSpawnYOffset);
 
 		pipeSprites.push_back(sprite);
 	}
 
-	//nie do koñca rozumiem jaki problem rozwi¹zuje niewidzialna rura (odcinek 12)
+	//nie do konca rozumiem jaki problem rozwiazuje niewidzialna rura (odcinek 12)
 	void Pipe::SpawnInvisiblePipe()
 	{
 		sf::Sprite sprite(this->_data->assets.GetTexture("Pipe Down"));
@@ -41,8 +44,8 @@ namespace ChroMoZub {
 	{
 		for (unsigned short int i = 0; i < pipeSprites.size(); i++)
 		{
-			//ten warunek usuwa rure z pamiêci jeœli wyjdzie poza ekran, aby nie zape³niaæ bezsensownie pamiêci
-			//NIE MO¯NA USUN¥Æ RURY JAK TYLKO ZETKNIE SIÊ Z GRANIC¥, PONIEWA¯ WCZEŒNIEJ ZNIKNIE NI¯ CHCEMY (dlatego w warunku ...- pipeSprite().at(i)....
+			//ten warunek usuwa rure z pamieci jezeli wyjdzie poza ekran, aby nie zapelniac bezsensownie pamieci
+			//NIE MOZNA USUNAC RURY JAK TYLKO ZETKNIE SIE Z GRANICA, PONIEWAZ WCZE?NIEJ ZNIKNIE NIZ CHCEMY (dlatego w warunku ...- pipeSprite().at(i)....
 			if (pipeSprites.at(i).getPosition().x < 0 - pipeSprites.at(i).getGlobalBounds().width) {
 				pipeSprites.erase(pipeSprites.begin() + i);
 			}
@@ -64,12 +67,12 @@ namespace ChroMoZub {
 			this->_data->window.draw(pipeSprites.at(i));
 		}
 	}
-        void Pipe::RandomisePipeOffset()
+	void Pipe::RandomisePipeOffset()
 	{
-		_pipeSpawnYOffset = rand() % ( _landHeight + 1);
-		
+		_pipeSpawnYOffset = rand() % (_landHeight + 1);
+
 	}
 
-	
-	
+
+
 }

@@ -13,8 +13,8 @@ namespace ChroMoZub {
 		void DrawLand();
 	private:
 		GameDataRef _data;
-		
-		//vector zawieraj¹cy tekstury pod³o¿y
+
+		//vector zawierajacy tekstury podlozy
 		std::vector<sf::Sprite> _landSprites;
 
 
