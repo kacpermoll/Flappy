@@ -6,6 +6,7 @@
 #include "Pipe.hpp"
 #include "Land.hpp"
 #include "Bird.hpp"
+#include "Collision.hpp"
 
 namespace ChroMoZub
 {
@@ -31,6 +32,10 @@ namespace ChroMoZub
 
 		Bird* bird;
 
+		Collision collision;
+
 		sf::Clock clock;
+
+		int _gameState;
 	};
 }

@@ -18,6 +18,8 @@ namespace ChroMoZub {
 		void DrawPipes();
 		void RandomisePipeOffset();
 
+		const std::vector<sf::Sprite>& GetSprites() const;
+
 	private:
 		GameDataRef _data;
 

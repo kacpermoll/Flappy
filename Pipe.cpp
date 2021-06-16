@@ -73,6 +73,9 @@ namespace ChroMoZub {
 
 	}
 
-
+	const std::vector<sf::Sprite>& Pipe::GetSprites() const
+	{
+		return pipeSprites;
+	}
 
 }

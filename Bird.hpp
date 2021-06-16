@@ -23,6 +23,8 @@ namespace ChroMoZub
 
 		void Tap();
 
+		const sf::Sprite& GetSprite() const;
+
 	private:
 		GameDataRef _data;
 
@@ -36,6 +38,8 @@ namespace ChroMoZub
 		sf::Clock _movementClock;
 
 		int _birdState;
+
+		float _rotation;
 
 	};
 }
