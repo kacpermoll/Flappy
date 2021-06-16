@@ -54,7 +54,15 @@ namespace ChroMoZub
       { 
           _birdSprite.move(0, FLYING_SPEED * dt);
       }
-      
+      if( _movementClock.getElapsedTime( ).asSeconds() >FLYING_DURATION)
+      {
+          _movementClock.restart( );
+          _bridstate = BIRD_STATE_FALLING;
+      }
   }
-  
+  void Bird::Tap( )
+  {
+      _movementClock.restart( );
+      _birdState = BIRD_STATE_FLYING;
+  }
 }
