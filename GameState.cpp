@@ -46,7 +46,8 @@ namespace ChroMoZub
 
 			if (_data->input.IsSpriteClicked(_background, sf::Mouse::Left, _data->window))
 			{
-				
+				bird->Tap( dt );
+				bird->Update( dt);
 			}
 
 		}
