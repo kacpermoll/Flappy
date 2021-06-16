@@ -52,7 +52,7 @@ namespace ChroMoZub
       }
       else if( BIRD_STATE_FLYING ==_birdState )
       { 
-          _birdSprite.move(0, FLYING_SPEED * dt);
+          _birdSprite.move(0, -FLYING_SPEED * dt);
       }
       if( _movementClock.getElapsedTime( ).asSeconds() >FLYING_DURATION)
       {
