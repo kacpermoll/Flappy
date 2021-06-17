@@ -32,7 +32,7 @@ namespace ChroMoZub {
 	//nie do konca rozumiem jaki problem rozwiazuje niewidzialna rura (odcinek 12)
 	void Pipe::SpawnInvisiblePipe()
 	{
-		sf::Sprite sprite(this->_data->assets.GetTexture("Pipe Down"));
+		sf::Sprite sprite(this->_data->assets.GetTexture("Pipe Down"));  //tu na filmiku jest PIpe Up nwm co z tym
 
 		sprite.setPosition(this->_data->window.getSize().x, 0);
 		sprite.setColor(sf::Color(0, 0, 0, 0));
