@@ -39,6 +39,16 @@ namespace ChroMoZub {
 
 		pipeSprites.push_back(sprite);
 	}
+	
+	void Pipe::SpawnScoringPipe()
+	{
+		sf::Sprite sprite(this->_data->assets.GetTexture("Pipe Down"));
+
+		sprite.setPosition(this->_data->window.getSize().x, 0);
+		sprite.setColor(sf::Color(0, 0, 0, 0));
+
+		pipeSprites.push_back(sprite);
+	}
 
 	void Pipe::MovePipes(float dt)
 	{
