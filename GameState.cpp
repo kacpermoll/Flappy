@@ -104,7 +104,8 @@ namespace ChroMoZub
 					_gameState = GameStates::eGameOver;
 				}
 			}
-			
+			if (GameState::ePlaying == _gameState)
+			{
 			std::vector<sf::Sprite> &scoringSprites = pipe->GetScoringSprites();
 
 			for (int i = 0; i < scoringSprites.size(); i++)
@@ -116,6 +117,7 @@ namespace ChroMoZub
 					std::cout <<_score << std::endl;
 					scoringSprites.erase (scoringSprites.begin() + i );
 				}
+			}
 			}
 		}
 
