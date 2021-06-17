@@ -95,7 +95,7 @@ namespace ChroMoZub
 
 			for (int i = 0; i < pipeSprites.size(); i++)
 			{
-				if (collision.CheckSpriteCollision(bird->GetSprite(), 0.625f, pipeSprites.at(i), 1.0f))
+				if (collision.CheckSpriteCollision(bird->GetSprite(), 1.0f, pipeSprites.at(i), 0.625f))
 				{
 					_gameState = GameStates::eGameOver;
 				}
