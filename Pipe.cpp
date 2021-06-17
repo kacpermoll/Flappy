@@ -42,12 +42,12 @@ namespace ChroMoZub {
 	
 	void Pipe::SpawnScoringPipe()
 	{
-		sf::Sprite sprite(this->_data->assets.GetTexture("Pipe Down"));
+		sf::Sprite sprite(this->_data->assets.GetTexture("Scoring Pipe"));
 
 		sprite.setPosition(this->_data->window.getSize().x, 0);
-		sprite.setColor(sf::Color(0, 0, 0, 0));
+		
 
-		pipeSprites.push_back(sprite);
+		scoringPipes.push_back(sprite);
 	}
 
 	void Pipe::MovePipes(float dt)
@@ -65,6 +65,21 @@ namespace ChroMoZub {
 				pipeSprites.at(i).move(-movement, 0);
 			}
 		}
+		
+		for (unsigned short int i = 0; i < scoringPipes.size(); i++)
+		{
+			//ten warunek usuwa rure z pamieci jezeli wyjdzie poza ekran, aby nie zapelniac bezsensownie pamieci
+			//NIE MOZNA USUNAC RURY JAK TYLKO ZETKNIE SIE Z GRANICA, PONIEWAZ WCZE?NIEJ ZNIKNIE NIZ CHCEMY (dlatego w warunku ...- pipeSprite().at(i)....
+			if (scoringPipes.at(i).getPosition().x < 0 - scoringPipes.at(i).getGlobalBounds().width) {
+				scoringPipes.erase(scoringPipes.begin() + i);
+			}
+			else {
+				float movement = PIPE_MOVEMENT_SPEED * dt;
+
+				scoringPipes.at(i).move(-movement, 0);
+			}
+		}	 
+
 
 		std::cout << pipeSprites.size() << std::endl;
 	}
@@ -86,6 +101,11 @@ namespace ChroMoZub {
 	const std::vector<sf::Sprite>& Pipe::GetSprites() const
 	{
 		return pipeSprites;
+	}
+	
+	std::vector<sf::Sprite>& Pipe::GetScoringSprites()
+	{
+		return scoringPipes;
 	}
 
 }
