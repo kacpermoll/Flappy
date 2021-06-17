@@ -23,6 +23,7 @@ namespace ChroMoZub
 		this->_data->assets.LoadTexture("Bird Frame 2", BIRD_FRAME_2_FILEPATH);
 		this->_data->assets.LoadTexture("Bird Frame 3", BIRD_FRAME_3_FILEPATH);
 		this->_data->assets.LoadTexture("Bird Frame 4", BIRD_FRAME_4_FILEPATH);
+		this->_data->assets.LoadTexture("Scoring Pipe", SCORING_PIPE_FILEPATH);
 
 		pipe = new Pipe(_data);
 		land = new Land(_data);
@@ -31,6 +32,7 @@ namespace ChroMoZub
 
 		_background.setTexture(this->_data->assets.GetTexture("Game Background"));
 		
+		_score = 0;
 		_gameState = GameStates::eReady;
 	}
 
@@ -76,6 +78,7 @@ namespace ChroMoZub
 				pipe->SpawnInvisiblePipe();
 				pipe->SpawnBottomPipe();
 				pipe->SpawnTopPipe();
+				pipe->SpawnInvisiblePipe();
 
 				clock.restart();
 			}
@@ -99,6 +102,19 @@ namespace ChroMoZub
 				if (collision.CheckSpriteCollision(bird->GetSprite(), 1.0f, pipeSprites.at(i), 0.625f))
 				{
 					_gameState = GameStates::eGameOver;
+				}
+			}
+			
+			std::vector<sf::Sprite> &scoringSprites = pipe->GetScoringSprites();
+
+			for (int i = 0; i < scoringSprites.size(); i++)
+			{
+				std::cout << "32234" << std::endl;
+				if (collision.CheckSpriteCollision(bird->GetSprite(), 1.0f, scoringSprites.at(i), 0.625f))
+				{
+					_score++;
+					std::cout <<_score << std::endl;
+					scoringSprites.erase (scoringSprites.begin() + i );
 				}
 			}
 		}
