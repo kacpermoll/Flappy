@@ -7,6 +7,7 @@
 #include "Land.hpp"
 #include "Bird.hpp"
 #include "Collision.hpp"
+#include"Flash.hpp"
 
 namespace ChroMoZub
 {
@@ -27,12 +28,10 @@ namespace ChroMoZub
 		sf::Sprite _background;
 
 		Pipe* pipe;
-
 		Land* land;
-
 		Bird* bird;
-
 		Collision collision;
+		Flash* flash;
 
 		sf::Clock clock;
 

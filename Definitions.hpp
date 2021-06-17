@@ -45,3 +45,4 @@ enum GameStates
 	eGameOver
 };
 
+#define FLASH_SPEED 1500.0f
