@@ -78,7 +78,7 @@ namespace ChroMoZub
 				pipe->SpawnInvisiblePipe();
 				pipe->SpawnBottomPipe();
 				pipe->SpawnTopPipe();
-				pipe->SpawnInvisiblePipe();
+				pipe->SpawnScoringPipe();
 
 				clock.restart();
 			}
