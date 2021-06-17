@@ -13,7 +13,7 @@ namespace ChroMoZub {
 		void SpawnBottomPipe();
 		void SpawnTopPipe();
 		void SpawnInvisiblePipe();
-		void SpawnScoringPipes();
+		void SpawnScoringPipe();
 		void MovePipes(float dt);
 		//funkcja odpowiedzialna za rysowanie rur
 		void DrawPipes();
