@@ -3,6 +3,7 @@
 #include "DEFINITIONS.hpp"
 #include "GameState.hpp"
 #include <iostream>
+#include <fstream>
 
 namespace ChroMoZub
 {
@@ -13,6 +14,39 @@ namespace ChroMoZub
 
 	void GameOverState::Init()
 	{
+		//zapis do pliku rekordu
+		std::ifstream readFile;
+		readFile.open("Resources/HighScore.txt");
+
+		if (readFile.is_open())
+		{
+			while (!readFile.eof())
+			{
+				readFile >> _highScore;
+			}
+		}
+
+		std::cout << _highScore << std::endl;
+
+		readFile.close();
+
+		std::ofstream writeFile("Resources/Highscore.txt");
+
+		if (writeFile.is_open())
+		{
+			if (_score > _highScore)
+			{
+				_highScore = _score;
+			}
+
+			writeFile << _highScore;
+		}
+
+		writeFile.close();
+
+		//----------------
+
+
 		this->_data->assets.LoadTexture("Game Over Background", GAME_OVER_BACKGROUND_FILEPATH);
 		this->_data->assets.LoadTexture("Game Over Title", GAME_OVER_TITLE_FILEPATH);
 		this->_data->assets.LoadTexture("Game Over Body", GAME_OVER_BODY_FILEPATH);
