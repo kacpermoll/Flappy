@@ -10,7 +10,7 @@ namespace ChroMoZub
 	{
 	public:
 		HUD(GameDataRef data);
-
+		~HUD();
 		void Draw();
 		void UpdateScore(int score);
 

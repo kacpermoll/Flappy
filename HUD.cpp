@@ -19,6 +19,10 @@ namespace ChroMoZub
 		_scoreText.setPosition(_data->window.getSize().x / 2, _data->window.getSize().y / 5);
 	}
 
+	HUD::~HUD()
+	{
+	}
+
 	void HUD::Draw()
 	{
 		_data->window.draw(_scoreText);
