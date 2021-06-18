@@ -125,7 +125,7 @@ namespace ChroMoZub
 					{
 						_score++;
 
-						//hud->UpdateScore(_score);
+						hud->UpdateScore(_score);
 
 						scoringSprites.erase(scoringSprites.begin() + i);
 					}
@@ -155,6 +155,8 @@ namespace ChroMoZub
 		land->DrawLand();
 		bird->Draw();
 		flash->Draw();
+		
+		hud->Draw();
 
 		this->_data->window.display();
 	}
