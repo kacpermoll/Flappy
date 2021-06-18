@@ -46,7 +46,6 @@ namespace ChroMoZub {
 
 		sprite.setPosition(this->_data->window.getSize().x, 0);
 		
-
 		scoringPipes.push_back(sprite);
 	}
 
@@ -66,22 +65,20 @@ namespace ChroMoZub {
 			}
 		}
 		
-		for (unsigned short int i = 0; i < scoringPipes.size(); i++)
+		for (int i = 0; i < scoringPipes.size(); i++)
 		{
-			//ten warunek usuwa rure z pamieci jezeli wyjdzie poza ekran, aby nie zapelniac bezsensownie pamieci
-			//NIE MOZNA USUNAC RURY JAK TYLKO ZETKNIE SIE Z GRANICA, PONIEWAZ WCZE?NIEJ ZNIKNIE NIZ CHCEMY (dlatego w warunku ...- pipeSprite().at(i)....
-			if (scoringPipes.at(i).getPosition().x < 0 - scoringPipes.at(i).getGlobalBounds().width) {
+			if (scoringPipes.at(i).getPosition().x < 0 - scoringPipes.at(i).getLocalBounds().width)
+			{
 				scoringPipes.erase(scoringPipes.begin() + i);
 			}
-			else {
+			else
+			{
+				sf::Vector2f position = scoringPipes.at(i).getPosition();
 				float movement = PIPE_MOVEMENT_SPEED * dt;
 
 				scoringPipes.at(i).move(-movement, 0);
 			}
-		}	 
-
-
-		std::cout << pipeSprites.size() << std::endl;
+		}
 	}
 
 	//rysowanie rur
@@ -107,5 +104,4 @@ namespace ChroMoZub {
 	{
 		return scoringPipes;
 	}
-
 }

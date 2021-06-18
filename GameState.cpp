@@ -16,6 +16,25 @@ namespace ChroMoZub
 
 	void GameState::Init()
 	{
+		if (!_hitSoundBuffer.loadFromFile(HIT_SOUND_FILEPATH))
+		{
+			std::cout << "Error Loading Hit Sound Effect" << std::endl;
+		}
+
+		if (!_wingSoundBuffer.loadFromFile(WING_SOUND_FILEPATH))
+		{
+			std::cout << "Error Loading Wing Sound Effect" << std::endl;
+		}
+
+		if (!_pointSoundBuffer.loadFromFile(POINT_SOUND_FILEPATH))
+		{
+			std::cout << "Error Loading Point Sound Effect" << std::endl;
+		}
+
+		_hitSound.setBuffer(_hitSoundBuffer);
+		_wingSound.setBuffer(_wingSoundBuffer);
+		_pointSound.setBuffer(_pointSoundBuffer);
+
 		this->_data->assets.LoadTexture("Game Background", GAME_BACKGROUND_FILEPATH);
 		this->_data->assets.LoadTexture("Pipe Up", PIPE_UP_FILEPATH);
 		this->_data->assets.LoadTexture("Pipe Down", PIPE_DOWN_FILEPATH);
@@ -58,6 +77,8 @@ namespace ChroMoZub
 				{
 					_gameState = GameStates::ePlaying;
 					bird->Tap();
+
+					_wingSound.play();
 				}
 			}
 		}
@@ -99,6 +120,8 @@ namespace ChroMoZub
 					_gameState = GameStates::eGameOver;
 
 					clock.restart();
+
+					_hitSound.play();
 				}
 			}
 
@@ -106,12 +129,15 @@ namespace ChroMoZub
 
 			for (int i = 0; i < pipeSprites.size(); i++)
 			{
-				if (collision.CheckSpriteCollision(bird->GetSprite(), 1.0f, pipeSprites.at(i), 0.625f))
+				// ogarnąć skale
+				if (collision.CheckSpriteCollision(bird->GetSprite(), 0.5f, pipeSprites.at(i), 0.5f))
 				{
 					_gameState = GameStates::eGameOver;
 					
 					//resetujemy zegar w celu naliczenia czasu po jakim ma się pokazać game over
 					clock.restart();
+
+					_hitSound.play();
 				}
 			}
 
@@ -125,10 +151,12 @@ namespace ChroMoZub
 					if (collision.CheckSpriteCollision(bird->GetSprite(), 0.625f, scoringSprites.at(i), 1.0f))
 					{
 						_score++;
-
+						
 						hud->UpdateScore(_score);
 
 						scoringSprites.erase(scoringSprites.begin() + i);
+
+						_pointSound.play();
 					}
 				}
 			}
@@ -156,7 +184,6 @@ namespace ChroMoZub
 		land->DrawLand();
 		bird->Draw();
 		flash->Draw();
-		
 		hud->Draw();
 
 		this->_data->window.display();
