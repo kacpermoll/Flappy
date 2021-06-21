@@ -46,12 +46,12 @@ namespace ChroMoZub
 		this->_data->assets.LoadTexture("Scoring Pipe", SCORING_PIPE_FILEPATH);
 		this->_data->assets.LoadFont("Flappy Font", FLAPPY_FONT_FILEPATH);
 
-		//sprawdzenie
-		pipe = new Pipe(_data);
-		land = new Land(_data);
-		bird = new Bird(_data);
-		flash = new Flash(_data);
-		hud = new HUD(_data);
+		////sprawdzenie
+		//pipe = new Pipe(_data);
+		//land = new Land(_data);
+		//bird = new Bird(_data);
+		//flash = new Flash(_data);
+		//hud = new HUD(_data);
 
 		_background.setTexture(this->_data->assets.GetTexture("Game Background"));
 

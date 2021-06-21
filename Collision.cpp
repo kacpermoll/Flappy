@@ -4,7 +4,7 @@ namespace ChroMoZub
 {
 	Collision::Collision()
 	{
-	
+
 	}
 
 	Collision::~Collision()
@@ -12,7 +12,7 @@ namespace ChroMoZub
 
 	}
 
-	/*bool Collision::CheckSpriteCollision(sf::Sprite sprite1, sf::Sprite sprite2)
+	bool Collision::CheckSpriteCollision(sf::Sprite sprite1, sf::Sprite sprite2)
 	{
 		sf::Rect<float> rect1 = sprite1.getGlobalBounds();
 		sf::Rect<float> rect2 = sprite2.getGlobalBounds();
@@ -23,7 +23,7 @@ namespace ChroMoZub
 		}
 		else
 			return false;
-	}*/
+	}
 
 
 	bool Collision::CheckSpriteCollision(sf::Sprite sprite1, float scale1, sf::Sprite sprite2, float scale2)

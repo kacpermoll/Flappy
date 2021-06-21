@@ -32,6 +32,7 @@ namespace ChroMoZub
 		_data->window.draw(_birdSprite);
 	}
 
+	//zmiana pomiedzy teksturami ptaka
 	void Bird::Animate(float dt)
 	{
 		if (_clock.getElapsedTime().asSeconds() > BIRD_ANIMATION_DURATION / _animationFrames.size())
