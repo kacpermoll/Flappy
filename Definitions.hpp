@@ -37,6 +37,7 @@
 #define POINT_SOUND_FILEPATH "Resources/audio/Point.wav"
 #define WING_SOUND_FILEPATH "Resources/audio/Wing.wav"
 
+
 #define PIPE_MOVEMENT_SPEED 200.0f //predkosc ruchu rur
 #define PIPE_SPAWN_FREQUENCY 1.5f // czestosc pojawiania sie rur, tj czy jest to zageszczeone, czy co 5 metrow
 
@@ -61,7 +62,6 @@ enum GameStates
 };
 
 #define FLASH_SPEED 1500.0f
-
 
 #define TIME_BEFORE_GAME_OVER_APPEARS 1.5f
 

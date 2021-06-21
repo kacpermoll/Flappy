@@ -141,7 +141,6 @@ namespace ChroMoZub
 				}
 			}
 
-			//tu wziąłem skopiowałem z githuba
 			if (GameStates::ePlaying == _gameState)
 			{
 				std::vector<sf::Sprite>& scoringSprites = pipe->GetScoringSprites();

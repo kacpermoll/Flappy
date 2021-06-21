@@ -17,7 +17,7 @@ namespace ChroMoZub
 	private:
 		GameDataRef _data;
 
-		//obiekt wyœwietlaj¹cy tekst
+		//obiekt wyswietlajacy tekst
 		sf::Text _scoreText;
 	};
 }

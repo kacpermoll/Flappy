@@ -64,9 +64,9 @@ namespace ChroMoZub
 		_gameOverContainer.setPosition(sf::Vector2f((_data->window.getSize().x / 2) - (_gameOverContainer.getGlobalBounds().width / 2), (_data->window.getSize().y / 2) - (_gameOverContainer.getGlobalBounds().height / 2)));
 		_gameOverTitle.setPosition(sf::Vector2f((_data->window.getSize().x / 2) - (_gameOverTitle.getGlobalBounds().width / 2), _gameOverContainer.getPosition().y - (_gameOverTitle.getGlobalBounds().height * 1.2)));
 		_retryButton.setPosition(sf::Vector2f((_data->window.getSize().x / 2) - (_retryButton.getGlobalBounds().width / 2), _gameOverContainer.getPosition().y + _gameOverContainer.getGlobalBounds().height + (_retryButton.getGlobalBounds().height * 0.2)));
-	
+
 		//---------------------------------------------------
-		//czêœæ zajmuj¹ca siê tekstem, formatowanie itd
+		//czesc zajmujaca sie tekstem, formatowanie itd
 		_scoreText.setFont(this->_data->assets.GetFont("Flappy Font"));
 		_scoreText.setString(std::to_string(_score));
 		_scoreText.setCharacterSize(56);
@@ -80,7 +80,7 @@ namespace ChroMoZub
 		_highScoreText.setFillColor(sf::Color::White);
 		_highScoreText.setOrigin(sf::Vector2f(_highScoreText.getGlobalBounds().width / 2, _highScoreText.getGlobalBounds().height / 2));
 		_highScoreText.setPosition(sf::Vector2f(_data->window.getSize().x / 10 * 7.25, _data->window.getSize().y / 1.78));
-	
+
 		if (_score >= PLATINUM_MEDAL_SCORE)
 		{
 			_medal.setTexture(_data->assets.GetTexture("Platinum Medal"));
@@ -98,7 +98,7 @@ namespace ChroMoZub
 			_medal.setTexture(_data->assets.GetTexture("Bronze Medal"));
 		}
 
-		//idealnie wpasowuje siê 
+		//idealnie wpasowuje sie
 		_medal.setPosition(175, 465);
 	}
 
@@ -115,7 +115,7 @@ namespace ChroMoZub
 
 			if (this->_data->input.IsSpriteClicked(this->_retryButton, sf::Mouse::Left, this->_data->window))
 			{
-				//zmiana stanu gry na now¹ gre, czyli zapêtlenie
+				//zmiana stanu gry na nowa gre, czyli zapetlenie
 				this->_data->machine.AddState(StateRef(new GameState(_data)), true);
 			}
 		}
