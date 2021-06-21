@@ -51,12 +51,12 @@ namespace ChroMoZub
 		land = new Land(_data);
 		bird = new Bird(_data);
 		flash = new Flash(_data);
-		hud = new HUD( _data );
+		hud = new HUD(_data);
 
 		_background.setTexture(this->_data->assets.GetTexture("Game Background"));
-		
+
 		_score = 0;
-		hud->UpdateScore( _score );
+		hud->UpdateScore(_score);
 		_gameState = GameStates::eReady;
 	}
 
@@ -85,7 +85,7 @@ namespace ChroMoZub
 	}
 
 	void GameState::Update(float dt)
-	{	
+	{
 		if (GameStates::eGameOver != _gameState)
 		{
 
@@ -133,7 +133,7 @@ namespace ChroMoZub
 				if (collision.CheckSpriteCollision(bird->GetSprite(), 0.5f, pipeSprites.at(i), 0.5f))
 				{
 					_gameState = GameStates::eGameOver;
-					
+
 					//resetujemy zegar w celu naliczenia czasu po jakim ma się pokazać game over
 					clock.restart();
 
@@ -141,7 +141,6 @@ namespace ChroMoZub
 				}
 			}
 
-			//tu wziąłem skopiowałem z githuba
 			if (GameStates::ePlaying == _gameState)
 			{
 				std::vector<sf::Sprite>& scoringSprites = pipe->GetScoringSprites();
@@ -151,7 +150,7 @@ namespace ChroMoZub
 					if (collision.CheckSpriteCollision(bird->GetSprite(), 0.625f, scoringSprites.at(i), 1.0f))
 					{
 						_score++;
-						
+
 						hud->UpdateScore(_score);
 
 						scoringSprites.erase(scoringSprites.begin() + i);
@@ -160,7 +159,7 @@ namespace ChroMoZub
 					}
 				}
 			}
-			
+
 		}
 
 		if (GameStates::eGameOver == _gameState)
@@ -169,7 +168,7 @@ namespace ChroMoZub
 
 			if (clock.getElapsedTime().asSeconds() > TIME_BEFORE_GAME_OVER_APPEARS) {
 				//true poniewaz zastępujemy aktualny stan gry nowym (gejmowerem xd)
-				_data->machine.AddState(StateRef(new GameOverState(_data,_score)), true);
+				_data->machine.AddState(StateRef(new GameOverState(_data, _score)), true);
 			}
 		}
 	}

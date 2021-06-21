@@ -30,7 +30,7 @@ namespace ChroMoZub
 		sf::Text _scoreText;
 		sf::Text _highScoreText;
 
-		//zmienne przechowuj¹ce aktualny wynik i rekordzik
+		//zmienne przechowujace aktualny wynik i rekordzik
 		int _score;
 		int _highScore;
 	};

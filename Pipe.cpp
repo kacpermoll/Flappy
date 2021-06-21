@@ -29,23 +29,22 @@ namespace ChroMoZub {
 		pipeSprites.push_back(sprite);
 	}
 
-	//nie do konca rozumiem jaki problem rozwiazuje niewidzialna rura (odcinek 12)
 	void Pipe::SpawnInvisiblePipe()
 	{
-		sf::Sprite sprite(this->_data->assets.GetTexture("Pipe Down"));  //tu na filmiku jest PIpe Up nwm co z tym
+		sf::Sprite sprite(this->_data->assets.GetTexture("Pipe Down"));
 
 		sprite.setPosition(this->_data->window.getSize().x, 0);
 		sprite.setColor(sf::Color(0, 0, 0, 0));
 
 		pipeSprites.push_back(sprite);
 	}
-	
+
 	void Pipe::SpawnScoringPipe()
 	{
 		sf::Sprite sprite(this->_data->assets.GetTexture("Scoring Pipe"));
 
 		sprite.setPosition(this->_data->window.getSize().x, 0);
-		
+
 		scoringPipes.push_back(sprite);
 	}
 
@@ -64,7 +63,7 @@ namespace ChroMoZub {
 				pipeSprites.at(i).move(-movement, 0);
 			}
 		}
-		
+
 		for (int i = 0; i < scoringPipes.size(); i++)
 		{
 			if (scoringPipes.at(i).getPosition().x < 0 - scoringPipes.at(i).getLocalBounds().width)
@@ -99,7 +98,7 @@ namespace ChroMoZub {
 	{
 		return pipeSprites;
 	}
-	
+
 	std::vector<sf::Sprite>& Pipe::GetScoringSprites()
 	{
 		return scoringPipes;
