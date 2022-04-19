@@ -1,3 +1,1 @@
-Projekt realizowany na potrzeby zaliczenia 1 roku :)
-
-Mam nadzieję, że zaliczmy 
+Pierwszy projekt z użyciem biblioteki SFML. Program został stworzony w oparciu o tutorial z kanału na YouTube _Sonar Systems_
